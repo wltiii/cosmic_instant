@@ -1,4 +1,4 @@
-import 'package:cosmic_instant/main.dart';
+import 'package:cosmic_instant/cosmic_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cosmic_instant/extensions/date_time_apis.dart';
@@ -17,7 +17,7 @@ void main() {
 
   testWidgets('Local date is formatted properly', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(CosmicApp());
 
     // Get the date
     var finder = find.byKey(Key('cosmic-date'));
@@ -35,7 +35,7 @@ void main() {
 
   testWidgets('Local time is formatted properly', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(CosmicApp());
 
     // Get the time
     var finder = find.byKey(Key('cosmic-time'));
@@ -53,7 +53,7 @@ void main() {
   testWidgets('Local instant is valid', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     var before = nowToSeconds();
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(CosmicApp());
     var after = nowToSeconds();
 
     // Get the date and time
@@ -81,7 +81,7 @@ void main() {
 
   testWidgets('UTC instant is formatted properly', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(CosmicApp());
 
     // Verify the utc time is displayed
     var utcInstantFinder = find.byKey(Key('utc-instant'));
@@ -95,7 +95,7 @@ void main() {
 
   testWidgets('ISO instant is formatted properly', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(CosmicApp());
 
     // Verify the utc time is displayed
     var isoInstantFinder = find.byKey(Key('iso-instant'));
